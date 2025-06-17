@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Stirling Method</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" href="img/NA.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+</head>
+
+<nav class="navbar navbar-dark bg-dark px-3">
+  <a class="navbar-brand" href="#">Numerical Methods Simulator</a>
+  <button onclick="logout()" class="btn btn-outline-light">Logout</button>
+</nav>
+
+<script>
+  function logout() {
+    localStorage.removeItem("loggedInUser");  // 🧹 clear login
+    window.location.href = "login.html";      // 🔁 redirect
+  }
+</script>
+
+<body class="bg-black">
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container">
+            <div class="w-25">
+                <a href="index.html"><img src="img/Group 5.png" class="navimg ms-5"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link text-black p-2" href="about_project.html">About Project</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="s1 text-white mt-4">
+        <div class="row">
+            <div class="col-sm-3 text-center">
+                <p><strong>ALGORITHM</strong></p>
+                <img class="Algo" src="img/stirling method.png">
+            </div>
+            <div class="col-md-7 m-4 justify-content-center">
+                <h1>Stirling Method</h1>
+                <p>
+                    Stirling’s interpolation formula is a central difference interpolation formula. It is particularly useful 
+                    when the values of x are equally spaced and the value of x at which the function is to be interpolated lies 
+                    close to the center of the values.
+                </p>
+                <form class="text-white">
+    <div class="mb-3">
+        <label for="xValues" class="form-label">Enter x values (comma separated)</label>
+        <input type="text" class="form-control" id="xValues" required>
+    </div>
+    <div class="mb-3">
+        <label for="fxValues" class="form-label">Enter f(x) values (comma separated)</label>
+        <input type="text" class="form-control" id="fxValues" required>
+    </div>
+    <div class="mb-3">
+        <label for="xToInterp" class="form-label">Value of x to interpolate</label>
+        <input type="text" class="form-control" id="xToInterp" required>
+    </div>
+    <button type="button" class="btn btn-success me-2" id="btn">Calculate</button>
+    <button type="button" class="btn btn-danger" id="clear">Clear</button>
+</form>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="middle">
+        <div class="w-75 h-50 bg-dark m-auto mt-md-5">
+            <table class="table text-white">
+                <thead id="resultTableHead">
+                    <tr>
+                        <th>i</th>
+                        <th>x</th>
+                        <th>f(x)</th>
+                        <th>Δf(x)</th>
+                        <th>Δ²f(x)</th>
+                        <th>Δ³f(x)</th>
+                        <th>...</th>
+                    </tr>
+                </thead>
+                <tbody id="resultTable">
+                    <!-- Results will be inserted here dynamically -->
+                </tbody>
+            </table>
+        </div>
+        <h3 class="text-white m-4 the-root">Interpolated Value = <span id="result"></span></h3>
+    </div>
+
+    <div class="footer w-100 text-white">
+        <div class="row">
+            <div class="col-4 position-relative">
+                <a href="index.html"><img src="img/NA.png" class="NAimg"></a>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-3 p-3 ms-5">
+                        <p>
+                            <a href="Bisection.html">Bisection</a><br>
+                            <a href="False Position.html">False Position</a><br>
+                            <a href="fixed point .html">Fixed Point Iteration</a><br>
+                            <a href="Newton.html">Newton</a><br>
+                        </p>
+                    </div>
+                    <div class="col-3 p-3">
+                        <a href="Secant Method.html">Secant</a><br>
+                        <a href="gaussian-elimination.html">Gauss Elimination</a><br>
+                        <a href="gaussJordan.html">Gauss Jordan</a><br>
+                        <a href="LUdecomposition.html">LU Decomposition</a><br>
+                    </div>
+                    <div class="col-3 p-3">
+                        <a href="newton forward.html">Newton Forward</a><br>
+                        <a href="newton backward.html">Newton Backward</a><br>
+                        <a href="lagrange interpolation.html">Lagrange's Interpolation</a><br>
+                    </div>
+                    <div class="col-3 p-3 ms-5">
+                        <a href="gauss forward.html">Gauss Forward</a><br>
+                        <a href="gauss backward.html">Gauss Backward</a><br>
+                        <a href="stirling method.html">Stirling Method</a><br>
+                        <a href="bessel method.html">Bessel Method</a><br>
+                    </div>
+                    <div class="col-3 p-3">
+                        <a href="hermite method.html">Hermite Method</a><br>
+                        <a href="trapezoidal method.html">Trapezoidal Method</a><br>
+                        <a href="simpson 1_3rd rule.html">Simpson's 1/3 Rule</a><br>
+                        <a href="simpson 3_8th rule.html">Simpson's 3/8 Rule</a><br>
+                    </div>
+                    <div class="col-3 p-3">
+                        <a href="euler 1st method.html">Euler's Method - 1st Order</a><br>
+                        <a href="euler 2nd method.html">Euler's Method - 2nd Order</a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='js/jquery-3.6.4.min.js'></script>
+    <script src='Stirling_method.js'></script>
+</body>
+</html>

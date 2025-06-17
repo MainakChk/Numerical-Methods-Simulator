@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Trapezoidal Method</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" href="img/NA.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
+</head>
+
+<body class="bg-black">
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="#">Numerical Methods Simulator</a>
+    <button onclick="logout()" class="btn btn-outline-light">Logout</button>
+</nav>
+
+<script>
+  function logout() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+  }
+</script>
+
+<!-- Secondary Navbar -->
+<nav class="navbar navbar-expand-lg bg-white">
+    <div class="container">
+        <div class="w-25">
+            <a href="index.html"><img src="img/Group 5.png" class="navimg ms-5"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-black p-2" href="about_project.html">About Project</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Section -->
+<div class="s1 text-white mt-4">
+    <div class="row">
+        <div class="col-sm-3 text-center">
+            <p><strong>ALGORITHM</strong></p>
+            <img class="Algo" src="img/trapezoidal method.png">
+        </div>
+        <div class="col-md-7 m-4">
+            <h1>Trapezoidal Method</h1>
+            <p>The Trapezoidal Method approximates the definite integral by summing trapezoids under the curve.</p>
+            <form class="container p-4 bg-dark text-white rounded shadow" style="max-width: 600px; margin: auto; margin-top: 40px;">
+  <div class="mb-3">
+    <label for="equation" class="form-label fw-bold">Function f(x)</label>
+    <input type="text" class="form-control bg-secondary text-white border-0" id="equation" name="equation" placeholder="e.g. Math.sin(x) + x*x" required>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+      <label for="a" class="form-label fw-bold">Lower Limit (a)</label>
+      <input type="number" step="any" class="form-control bg-secondary text-white border-0" id="a" name="a" placeholder="Enter a" required>
+    </div>
+    <div class="col">
+      <label for="b" class="form-label fw-bold">Upper Limit (b)</label>
+      <input type="number" step="any" class="form-control bg-secondary text-white border-0" id="b" name="b" placeholder="Enter b" required>
+    </div>
+    <div class="col">
+  <label for="n" class="form-label fw-bold text-white text-nowrap">Number of Intervals (n)</label>
+  <input type="number" class="form-control bg-secondary text-white border-0 mt-1" id="n" name="n" placeholder="Enter n" min="1" required>
+</div>
+
+  </div>
+
+  <div class="d-flex justify-content-center gap-3">
+    <input type="button" class="btn btn-primary px-4" value="Calculate" id="btn">
+    <input type="button" class="btn btn-secondary px-4" value="Clear" id="clear">
+  </div>
+</form>
+
+        </div>
+    </div>
+</div>
+
+<!-- Result Section -->
+<div id="middle">
+    <div class="w-75 h-50 bg-dark m-auto mt-md-5">
+        <table class="table text-white">
+            <thead>
+                <tr>
+                    <th>i</th>
+                    <th>x<sub>i</sub></th>
+                    <th>f(x<sub>i</sub>)</th>
+                </tr>
+            </thead>
+            <tbody id="result-table">
+                <!-- Populated via JS -->
+            </tbody>
+        </table>
+    </div>
+    <h3 class="text-white m-4 the-root">Approximated Integral = </h3>
+
+    <!-- Chart -->
+    <div class="w-75 m-auto bg-white p-3 rounded">
+        <canvas id="trapezoidalChart"></canvas>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer w-100 text-white mt-4">
+    <div class="row">
+        <div class="col-4">
+            <a></a>
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-3 p-3 ms-5">
+                    <p>
+                        <a href="Bisection.html">Bisection</a><br>
+                        <a href="False Position.html">False Position</a><br>
+                        <a href="fixed point .html">Fixed Point Iteration</a><br>
+                        <a href="Newton.html">Newton</a><br>
+                    </p>
+                </div>
+                <div class="col-3 p-3">
+                    <a href="Secant Method.html">Secant</a><br>
+                    <a href="gaussian-elimination.html">Gauss Elimination</a><br>
+                    <a href="gaussJordan.html">Gauss Jordan</a><br>
+                    <a href="LUdecomposition.html">LU Decomposition</a><br>
+                </div>
+                <div class="col-3 p-3">
+                    <a href="newton forward.html">Newton Forward</a><br>
+                    <a href="newton backward.html">Newton Backward</a><br>
+                    <a href="lagrange interpolation.html">Lagrange's Interpolation</a><br>
+                </div>
+                <div class="col-3 p-3 ms-5">
+                    <a href="gauss forward.html">Gauss Forward</a><br>
+                    <a href="gauss backward.html">Gauss Backward</a><br>
+                    <a href="stirling method.html">Stirling Method</a><br>
+                    <a href="bessel method.html">Bessel Method</a><br>
+                </div>
+                <div class="col-3 p-3">
+                    <a href="hermite method.html">Hermite Method</a><br>
+                    <a href="trapezoidal method.html">Trapezoidal Method</a><br>
+                    <a href="simpson 1_3rd rule.html">Simpson's 1/3 Rule</a><br>
+                    <a href="simpson 3_8th rule.html">Simpson's 3/8 Rule</a><br>
+                </div>
+                <div class="col-3 p-3">
+                    <a href="euler 1st method.html">Euler's Method - 1st Order</a><br>
+                    <a href="euler 2nd method.html">Euler's Method - 2nd Order</a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-3.6.4.min.js"></script>
+<script src="trapezoidal_method.js"></script>
+
+</body>
+</html>

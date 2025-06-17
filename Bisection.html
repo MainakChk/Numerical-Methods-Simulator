@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bisection Method</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="img/NA.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-black">
+  <nav class="navbar navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="#">Numerical Methods Simulator</a>
+    <button onclick="logout()" class="btn btn-outline-light">Logout</button>
+  </nav>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <nav class="navbar navbar-expand-lg bg-white">
+    <div class="container">
+      <div class="w-25">
+        <a href="index.html"><img src="img/Group 5.png" class="navimg ms-5"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link text-black p-2" href="about_project.html">About Project</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="s1 text-white mt-4">
+    <div class="row">
+      <div class="col-sm-3 text-center">
+        <p><strong>ALGORITHM</strong></p>
+        <img class="Algo" src="img/bisectAlgo.png">
+      </div>
+      <div class="col-md-7 m-4">
+        <h1>Bisection Method</h1>
+        <p>The bisection method is an approximation method to find the roots of a given equation by repeatedly dividing the interval until the desired precision is reached.</p>
+        <form id="bisection-form">
+          <div class="mb-2">
+            <label for="equation" class="form-label">Equation</label>
+            <input type="text" id="equation" class="form-control" placeholder="e.g., x^2 - 4" required>
+          </div>
+          <div class="row g-2">
+            <div class="col">
+              <label for="xl" class="form-label">XL</label>
+              <input type="number" id="xl" class="form-control" required>
+            </div>
+            <div class="col">
+              <label for="xu" class="form-label">XU</label>
+              <input type="number" id="xu" class="form-control" required>
+            </div>
+            <div class="col">
+              <label for="eps" class="form-label">EPS</label>
+              <select id="eps" class="form-select" required>
+		<option value="Select">Select a value</option>
+                <option value="0.1">0.1</option>
+                <option value="0.01">0.01</option>
+                <option value="0.001">0.001</option>
+                <option value="0.0001">0.0001</option>
+                <option value="0.00001">0.00001</option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-3">
+            <button type="button" id="btn" class="btn btn-primary">Calculate</button>
+            <button type="button" id="clear" class="btn btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="middle" class="d-none">
+    <div class="w-75 bg-dark m-auto mt-5">
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>i</th>
+            <th>xl</th>
+            <th>f(xl)</th>
+            <th>xu</th>
+            <th>f(xu)</th>
+            <th>xr</th>
+            <th>f(xr)</th>
+            <th>error</th>
+          </tr>
+        </thead>
+        <tbody id="result-table"></tbody>
+      </table>
+    </div>
+    <h3 class="text-white text-center mt-3 the-root">The Root = <span id="final-root"></span></h3>
+  </div>
+
+<div class="container mt-5 d-none" id="chart-container">
+  <h4 class="text-white text-center">Function Graph</h4>
+  <canvas id="bisectionChart" class="bg-white rounded p-2"></canvas>
+</div>
+
+  <div class="container mt-5">
+    <canvas id="graph" height="100"></canvas>
+  </div>
+
+<div class="mt-4">
+  <h5 class="text-center">XR vs Iteration Graph</h5>
+  <canvas id="xrGraph" style="min-height: 100px; width: 100%; background-color: white;"></canvas>
+</div>
+
+    <div class="footer w-100 text-white mt-5">
+        <div class="row">
+            <div class="col-4">
+             </div>
+
+            <div class="col-8 ">
+            <div class="row">
+                <div class="col-3 p-3 ms-5">
+                    <p>
+                        <a href="Bisection.html">Bisection</a><br>
+                        <a href="False Position.html">False Position</a><br>
+                        <a href="fixed point .html">Fixed Point Iteration</a><br>
+                        <a href="Newton.html">Newton</a><br>
+                         </p>
+                </div>
+                <div class="col-3 p-3">
+		    <a href="Secant Method.html">Secant</a><br>
+                    <a href="gaussian-elimination.html">Gauss Elimination</a><br>
+		    <a href="gaussJordan.html">Gauss Jordan</a><br>
+                    <a href="LUdecomposition.html">LU Decomposition</a><br>
+                    </div>
+
+		<div class="col-3 p-3">
+		    <a href="newton forward.html">Newton Forward</a><br>
+                    <a href="newton backward.html">Newton Backward</a><br>
+		    <a href="lagrange interpolation.html">Lagrange's Interpolation</a><br>
+                    </div>
+               
+		<div class="col-3 p-3 ms-5">
+		    <a href="gauss forward.html">Gauss Forward</a><br>
+                    <a href="gauss backward.html">Gauss Backward</a><br>
+		    <a href="stirling method.html">Stirling Method</a><br>
+                    <a href="bessel method.html">Bessel Method</a><br>
+                    </div>
+
+		<div class="col-3 p-3">
+		    <a href="hermite method.html">Hermite Method</a><br>
+                    <a href="trapezoidal method.html">Trapezoidal Method</a><br>
+		   <a href="simpson 1_3rd rule.html">Simpson's 1/3 Rule</a><br>
+                        <a href="simpson 3_8th rule.html">Simpson's 3/8 Rule</a><br>
+                    </div>
+
+		<div class="col-3 p-3">
+		    <a href="euler 1st method.html">Euler's Method - 1st Order</a><br>
+                    <a href="euler 2nd method.html">Euler's Method - 2nd Order</a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="Bisection_method.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

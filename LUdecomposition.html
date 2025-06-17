@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LU Decomposition</title>
+  <link rel = "icon" href = "img/NA.png"  type = "image/x-icon">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/all.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<nav class="navbar navbar-dark bg-dark px-3">
+  <a class="navbar-brand" href="#">Numerical Methods Simulator</a>
+  <button onclick="logout()" class="btn btn-outline-light">Logout</button>
+</nav>
+
+<script>
+  function logout() {
+    localStorage.removeItem("loggedInUser");  // 🧹 clear login
+    window.location.href = "login.html";      // 🔁 redirect
+  }
+</script>
+
+<body class="bg-black">
+  <nav class="navbar navbar-expand-lg bg-white   ">
+    <div class="container">
+        <div class="w-25">
+            <a href="index.html"><img src="img/Group 5.png" class="navimg ms-5 "></a>
+        </div>
+        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div class="navbar-nav  ms-auto ">
+                <a class="nav-link text-black p-2" href="about_project.html">About Project</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="text-white mt-4 " style="text-align: center;">
+  <div class="container">
+      <h1>LU Decomposition</h1>
+          <h3>Variables</h3>
+          <br>
+    </div>
+    <form style="text-align: center;">
+        <label for = "r1x1">X1</label>
+        <input type = "text" name = "r1x1" id = "r1x1" required>
+        <label for = "r1x2">X2</label>
+        <input type = "text" name = "r1x2" id = "r1x2" required> 
+        <label for = "r1x3">X3</label> 
+        <input type = "text" name = "r1x3" id = "r1x3" required>
+        <label for = "e1"> = </label> 
+        <input type = "text" name = "e1" id = "e1" required> <br> <br>
+        <label for = "r2x1">X1</label>
+        <input type = "text" name = "r2x1" id = "r2x1" required>
+        <label for = "r2x2">X2</label> 
+        <input type = "text" name = "r2x2" id = "r2x2" required>
+        <label for = "r2x3">X3</label> 
+        <input type = "text" name = "r2x3" id = "r2x3" required>
+        <label for = "e2">=</label>
+        <input type = "text" name = "e2" id = "e2" required> <br> <br>
+        <label for = "r3x1">X1</label> 
+        <input type = "text" name = "r3x1" id = "r3x1" required> 
+        <label for = "r3x2">X2</label> 
+        <input type = "text" name = "r3x2" id = "r3x2" required>
+        <label for = "r3x3">X3</label>
+        <input type = "text" name = "r3x3" id = "r3x3" required>
+        <label for = "e3">=</label> 
+        <input type = "text" name = "e3" id = "e3" required> <br> <br>
+        <input type="button" value="Calculate" onclick="luDecomposition()">
+        <input type="button" value="Clear" onclick="clearFields()">
+  </form>
+  <br>
+  <div class="SContain" style="padding-top: 30px;">
+      <h1>Solution</h1>
+      <br>
+      <div id="matrix"></div>
+      <div id="solution"></div>
+      <div id="steps" style="padding-bottom: 30px;"></div>
+  </div>
+  <br><br>
+
+
+  <script src = "LUdecomposition.js"></script>
+</div>
+<div class="footer  w-100   text-white">
+    <div class="row">
+
+        <div class="col-4  position-relative">
+          <a href="index.html"><img src="img/NA.png" class="NAimg "></a>
+        </div>
+
+
+        <div class="col-8 ">
+            <div class="row">
+                <div class="col-3 p-3 ms-5">
+                    <p>
+                        <a href="Bisection.html">Bisection</a><br>
+                        <a href="False Position.html">False Position</a><br>
+                        <a href="fixed point .html">Fixed Point Iteration</a><br>
+                        <a href="Newton.html">Newton</a><br>
+                         </p>
+                </div>
+                <div class="col-3 p-3">
+		    <a href="Secant Method.html">Secant</a><br>
+                    <a href="gaussian-elimination.html">Gauss Elimination</a><br>
+		    <a href="gaussJordan.html">Gauss Jordan</a><br>
+                    <a href="LUdecomposition.html">LU Decomposition</a><br>
+                    </div>
+
+		<div class="col-3 p-3">
+		    <a href="newton forward.html">Newton Forward</a><br>
+                    <a href="newton backward.html">Newton Backward</a><br>
+		    <a href="lagrange interpolation.html">Lagrange's Interpolation</a><br>
+                    </div>
+               
+		<div class="col-3 p-3 ms-5">
+		    <a href="gauss forward.html">Gauss Forward</a><br>
+                    <a href="gauss backward.html">Gauss Backward</a><br>
+		    <a href="stirling method.html">Stirling Method</a><br>
+                    <a href="bessel method.html">Bessel Method</a><br>
+                    </div>
+
+		<div class="col-3 p-3">
+		    <a href="hermite method.html">Hermite Method</a><br>
+                    <a href="trapezoidal method.html">Trapezoidal Method</a><br>
+		    <a href="simpson 1_3rd rule.html">Simpson's 1/3 Rule</a><br>
+                        <a href="simpson 3_8th rule.html">Simpson's 3/8 Rule</a><br>
+                    </div>
+
+		<div class="col-3 p-3">
+		    <a href="euler 1st method.html">Euler's Method - 1st Order</a><br>
+                    <a href="euler 2nd method.html">Euler's Method - 2nd Order</a><br>
+                    </div>
+              
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

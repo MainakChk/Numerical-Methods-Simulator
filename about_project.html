@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <title>About Project </title>
+    <!-- add icon link -->
+    <link rel = "icon" href = "img/NA.png"  type = "image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<nav class="navbar navbar-dark bg-dark px-3">
+  <a class="navbar-brand" href="#">Numerical Methods Simulator</a>
+  <button onclick="logout()" class="btn btn-outline-light">Logout</button>
+</nav>
+
+<script>
+  function logout() {
+    localStorage.removeItem("loggedInUser");  // 🧹 clear login
+    window.location.href = "login.html";      // 🔁 redirect
+  }
+</script>
+
+<body class="bg-black">
+    <div class="bg-black h-100  position-relative">
+        <nav class="navbar navbar-expand-lg bg-white   ">
+            <div class="container">
+                <div class="w-25">
+                    <a href="index.html"><img src="img/Group 5.png" class="navimg ms-5 "></a>
+                </div>
+                <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                    <div class="navbar-nav  ms-auto ">
+                        <a class="nav-link text-black p-2" href="about_project.html">About Project</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container text-light">
+            <h1 class="title mt-4">Introduction </h1>
+            <p class="mt-4">This website is a Numerical Methods Simulator using some of web developing technologies and UI/UX design tools. Our development process was structured according to a well-defined timeline, ensuring steady progress and effective implementation of each numerical method.
+            </p>
+            <!-- font size 400 -->
+            <h1 class="title mt-4">Analysis  </h1>
+            <p class="mt-4">In the first we look to the Numerical Methods Simulator which divided into four types in this project which are Finding Root of Polynomial Equation, Linear Algebric Eqaution, Interpolation Methods, Numerical Integration Methods, Numerical Solution of Differential Equation. So we have designed all the types of pages for solving the problems. And bulid other pages to make this website much integrated as the home page which is the landing page that the user can start from, to reach any numerical method he want easly. Finally we bulid this page which is a bulit in documentation that simply described our project and process.
+            </p>
+            <!-- font size 400 -->
+            <h1 class="title mt-4">Design </h1>
+            <p class="mt-4">In the design phase we had bulid a complete UI/UX design for the project. We were so careful to make the design comfortable and simple with a unique user experince making the access of the numerical method easy. We bulid a prototype that simulate the 
+                flow that user go throw the website starting from the home page to every method pages and also about project. 
+                we focused on the easy access of methods from any part of website, so user can access any methods from home page or footer from any other pages.
+                and can reach to home from the logo in navigation bar or footer.
+            </p>
+            <img src="img/NAUI.png" class="NAUIimg">
+            <!-- font size 400 -->
+            <h1 class="title mt-4">Implementation  </h1>
+            <p class="mt-4 mb-5">This is a web frontend project implemented with web development technologies we build this project by
+                <h5>For the Structure</h5>
+                <ul>
+                    <li>HTML</li>
+                </ul>
+                <h5>For the Design</h5>
+                <ul>
+                    <li>CSS</li>
+                    <li>Bootstrap</li>
+                    <li>JQuery</li>
+                </ul>
+                <h5>Methods Functions & website dynamic</h5>
+                <ul>
+                    <li>Java Script</li>
+                </ul>
+            </p>
+            <!-- font size 400 -->
+
+        </div>
+        
+            <div style="height: 10rem;"></div>
+
+            <div class="footer  w-100   text-white">
+                <div class="row">
+            
+                    <div class="col-4  position-relative">
+                      <a href="index.html"><img src="img/NA.png" class="NAimg "></a>
+                    </div>
+            
+            
+                    <div class="col-8 ">
+                        <div class="row">
+                            <div class="col-3 p-3 ms-5">
+                                <p>
+                                    <a href="Bisection.html">Bisection</a><br>
+                                    <a href="False Position.html">False Position</a><br>
+                                    <a href="fixed point.html">Fixed Point Iteration</a><br>
+                                    <a href="Newton.html">Newton</a><br>
+                                    
+                                     </p>
+                            </div>
+                            <div class="col-3 p-3">
+				<a href="Secant Method.html">Secant</a><br>
+                                <a href="gaussian-elimination.html">Gauss Elimination</a><br>
+                                <a href="LUdecomposition.html">LU Decomposition</a><br>
+                                <a href="gaussJordan.html">Gauss Jordan</a><br>
+			    </div>
+                          <div class="col-3 p-3">
+                        <a href="newton forward.html">Newton Forward</a><br>
+                        <a href="newton backward.html">Newton Backward</a><br>
+                        <a href="lagrange interpolation.html">Lagrange's Interpolation</a><br>
+                    </div>
+                    <div class="col-3 p-3 ms-5">
+                        <a href="gauss forward.html">Gauss Forward</a><br>
+                        <a href="gauss backward.html">Gauss Backward</a><br>
+                        <a href="stirling method.html">Stirling Method</a><br>
+                        <a href="bessel method.html">Bessel Method</a><br>
+                    </div>
+                    <div class="col-3 p-3">
+                        <a href="hermite method.html">Hermite Method</a><br>
+                        <a href="trapezoidal method.html">Trapezoidal Method</a><br>
+                        <a href="simpson 1_3rd rule.html">Simpson's 1/3 Rule</a><br>
+                        <a href="simpson 3_8th rule.html">Simpson's 3/8 Rule</a><br>
+                    </div>
+                    <div class="col-3 p-3">
+                        <a href="euler 1st method.html">Euler's Method - 1st Order</a><br>
+                        <a href="euler 2nd method.html">Euler's Method - 2nd Order</a><br>
+                    </div>
+            
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+            
+        
+        
+        
+        </body>
+        
+        </html>
